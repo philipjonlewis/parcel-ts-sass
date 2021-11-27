@@ -1,0 +1,268 @@
+@use "../base" as *;
+@use "../colors" as *;
+@use "../abstracts" as *;
+
+body {
+  color: $white-1;
+  // background-color: $pure-white;
+  background-color: red;
+  overflow-x: hidden;
+}
+
+.page-container {
+  @include flexbox(column, center, center);
+}
+
+.navbar-container {
+  @include dim(100vw, 4.4rem);
+  @include flexbox(column, center, center);
+  @include border-direction(bottom, 1px, $white-5);
+
+  // @include box-shadow;
+
+  position: relative;
+  top: 0;
+}
+
+.navbar-proper {
+  @include dim(60%, 100%);
+  @include flexbox(row, center, space-between);
+  padding: 1rem 0;
+
+  .logo-container {
+    font-family: SF Pro;
+    font-weight: 900;
+    color: $black-1;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .links-container {
+    @include flexbox(row, center, center);
+    height: 100%;
+
+    ul {
+      @include flexbox(row, center, center);
+      height: 100%;
+      font-size: 1rem;
+
+      li {
+        transition: all 0.5s ease;
+        font-weight: 500;
+        padding: 1.2rem 0.8rem;
+        margin-left: 0.8rem;
+
+        a {
+          &:hover {
+            color: $apple-blue;
+          }
+        }
+      }
+
+      li:last-of-type {
+        @include flexbox(column, center, center);
+        @include border-radius;
+
+        text-align: center;
+        transition: all 0.5s ease;
+        cursor: pointer;
+        height: 50%;
+        color: $white-5;
+        background-color: $apple-blue;
+        font-weight: bold;
+
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.first-container {
+  @include flexbox(row, center, space-between);
+  @include dim(60%, 80vh);
+
+  .blurb-container {
+    @include flexbox(column, flex-start, center);
+    @include dim(50%, 90%);
+
+    margin: 1rem;
+
+    .text-container {
+      p:nth-of-type(1) {
+        font-family: "SF Pro";
+        color: #202020;
+        font-weight: bolder;
+        font-size: 3rem;
+        line-height: 3.2rem;
+        margin-bottom: 1rem;
+      }
+
+      p:nth-of-type(2) {
+        color: $black-5;
+        font-size: 1.2rem;
+      }
+    }
+
+    .cta-container {
+      @include dim(100%, 4rem);
+      @include flexbox(row, center, flex-start);
+
+      margin-top: 1rem;
+
+      .cta-common {
+        @include border-radius;
+        @include flexbox(row, center, center);
+
+        height: 50%;
+        cursor: pointer;
+        background-color: $apple-blue;
+        padding: 1.2rem;
+        color: white;
+
+        p {
+          font-size: 0.9rem;
+          font-weight: bold;
+        }
+      }
+
+      .first-cta {
+        @extend .cta-common;
+        @include transition;
+
+        background-color: $apple-blue;
+
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.3) 0 1px 5px;
+        }
+      }
+
+      .second-cta {
+        @extend .cta-common;
+        @include transition;
+
+        margin-left: 0.8rem;
+        background-color: $apple-green;
+
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.3) 0 1px 5px;
+        }
+      }
+    }
+  }
+
+  .image-container {
+    @include flexbox(column, center, center);
+    @include border-radius;
+
+    // @include dim(580px, 360px);
+
+    position: relative;
+    transition: all 0.5s ease;
+    margin: 1rem;
+    cursor: pointer;
+    // background: url("https://designmodo.com/wp-content/themes/designmodo/custom-pages/slides/presentation/v-5/img/first_screen_video_poster.jpg")
+    //   no-repeat center;
+
+    .image-proper {
+      @include dim(580px, 360px);
+      @include box-shadow;
+
+      transition: all 0.5s ease;
+      img {
+        border-radius: 0.2rem;
+        @include dim-complete;
+      }
+      &:hover {
+        @include box-shadow;
+        transform: scale(1.02);
+      }
+    }
+
+    .rectangle-shape {
+      @include dim(4rem, 3rem);
+
+      position: absolute;
+      bottom: -2rem;
+      right: -2rem;
+      opacity: 0.8;
+      border-radius: 0.8rem;
+      background-color: $apple-blue;
+    }
+
+    .circle-shape {
+      @include dim(12rem, 12rem);
+      position: absolute;
+      top: -4rem;
+      left: -15%;
+      border-radius: 50%;
+      background-color: #f25022;
+      z-index: -1;
+    }
+
+    .dotted-common {
+      @include dim(200px, 80px);
+      position: absolute;
+      background-size: 10px 10px;
+      background-image: radial-gradient($apple-blue 1px, transparent 0);
+    }
+
+    .dotted-grid-one {
+      @extend .dotted-common;
+      top: -3rem;
+      right: 1.5rem;
+      z-index: -1;
+    }
+
+    .dotted-grid-two {
+      @extend .dotted-common;
+
+      bottom: -3rem;
+      left: 3%;
+      z-index: -1;
+    }
+  }
+}
+
+.second-container {
+  @include flexbox(row, center, space-around);
+  @include dim(60%, 10vh);
+  opacity: 0.7;
+}
+
+.third-container {
+  transition: all 1s ease;
+
+  @include flexbox(column, center, center);
+  @include dim(60%, 100vh);
+  @include box-shadow;
+
+  background-color: $rams-orange;
+
+  border-radius: 1rem;
+
+  transform: translateY(50%);
+  opacity: 0;
+}
+
+.slide-up {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.fourth-container {
+  @include flexbox(column, center, center);
+  @include dim(60%, 100vh);
+}
+
+.fifth-container {
+  @include flexbox(column, center, center);
+  @include dim(60%, 100vh);
+}

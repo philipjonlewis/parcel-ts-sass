@@ -1,0 +1,222 @@
+@use "./base" as *;
+@use "./colors" as *;
+@use "./abstracts" as *;
+
+body {
+  @include flexbox(column, center, center);
+}
+
+label {
+  font-size: 0.8rem;
+  color: $black-5;
+  padding-bottom: 0.2rem;
+}
+
+.page-container {
+  @include flexbox(column, center, center);
+  @include dim(100%, 100%);
+}
+
+.entry-card-container {
+  @include flexbox(row, center, center);
+  @include dim(900px, 600px);
+  @include box-shadow;
+
+  @media (max-width: 900px) {
+    @include flexbox(column, center, center);
+    @include dim(600px, 800px);
+  }
+}
+
+.image-container {
+  @include dim(50%, 100%);
+
+  background-color: $apple-red;
+  padding: 1rem;
+  color: $white-5;
+
+  .logo-container {
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+
+  .tagline-container {
+    .tagline {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    @include dim(100%, 20%);
+  }
+}
+
+.form-container {
+  @include flexbox(column, initial, flex-start);
+  @include dim(50%, 100%);
+
+  padding: 1rem;
+  position: relative;
+
+  .header-container {
+    height: 20%;
+
+    .title-container {
+      p {
+        color: $black-3;
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+    }
+
+    .subtitle-container {
+      font-size: 0.8rem;
+
+      p {
+        color: $white-1;
+
+        a {
+          color: $apple-red;
+
+          &:hover {
+            @include border-direction(bottom, 1px, $apple-red);
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+}
+
+.form-proper {
+  @include dim(100%, 70%);
+  position: relative;
+
+  //class only for extension
+  .input-container {
+    p {
+      font-size: 0.7rem;
+      color: #afafaf;
+      padding-top: 0.2rem;
+    }
+
+    .input-compliance {
+      padding-bottom: 0.6rem;
+      p {
+        font-size: 0.7rem;
+        color: $apple-red;
+      }
+    }
+  }
+
+  .username-container {
+    @extend .input-container;
+  }
+
+  .email-container {
+    @extend .input-container;
+  }
+
+  .password-input-container {
+    @include flexbox(row, initial, space-between);
+
+    width: 100%;
+    padding-bottom: 0.6rem;
+
+    .password-input-fields {
+      display: flex;
+      flex-direction: column;
+      width: 49%;
+
+      P {
+        font-size: 0.8rem;
+      }
+    }
+
+    .password-container {
+      @extend .password-input-fields;
+
+      .show-password-container {
+        @include flexbox(row, center, flex-start);
+        @include dim(100%, 2rem);
+
+        p {
+          padding-left: 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        padding: 1rem 0 1rem 0;
+      }
+    }
+
+    .password-confirmation-container {
+      @extend .password-input-fields;
+    }
+  }
+
+  .password-compliance-container {
+    @include flexbox(column, initial, flex-start);
+    @include dim(100%, 90px);
+
+    transition: all 0.5s ease;
+    position: absolute;
+    bottom: 3rem;
+    color: $apple-red;
+
+    p {
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .password-compliance {
+      font-size: 0.7rem;
+
+      ul {
+        padding-left: 1rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      bottom: 6rem;
+    }
+  }
+
+  .button-container {
+    @include dim(100%, 2rem);
+    position: absolute;
+    bottom: 0;
+
+    .signup-button {
+      @include dim-complete;
+      @include box-shadow;
+      @include transition;
+    
+      background-color: $apple-blue;
+      color: $white-5;
+      font-weight: bold;
+
+      &:hover {
+        transform: translateY(-2px);
+        background-color: darken($apple-blue, 5%);
+      }
+    }
+  }
+}
+
+.copyright-container {
+  @include flexbox(column, center, flex-end);
+  @include dim(100%, 10%);
+
+  font-size: 0.6rem;
+  text-align: center;
+}
+
+.hidden {
+  @include visibility-hidden;
+}
