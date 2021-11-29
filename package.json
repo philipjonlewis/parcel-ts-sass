@@ -1,5 +1,5 @@
 {
-  "name": "design-system",
+  "name": "parcel_template-typescript",
   "version": "1.0.0",
   "description": "",
   "source": [
@@ -14,15 +14,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/philipjonlewis/Design-System.git"
+    "url": "git+https://github.com/philipjonlewis/parcel-ts-sass.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/philipjonlewis/Design-System/issues"
+    "url": "https://github.com/philipjonlewis/parcel-ts-sass/issues"
   },
-  "homepage": "https://github.com/philipjonlewis/Design-System#readme",
+  "homepage": "https://github.com/philipjonlewis/parcel-ts-sass#readme",
   "devDependencies": {
-    "parcel": "^2.0.0"
+    "@parcel/transformer-sass": "^2.0.1",
+    "parcel": "^2.0.1"
   }
 }
