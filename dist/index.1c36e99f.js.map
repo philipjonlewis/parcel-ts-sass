@@ -1,1 +1,0 @@
-{"mappings":"AAAAA,QAAQC,IAAI","sources":["src/typescript/app.ts"],"sourcesContent":["console.log(\"this is working\");\r\n\r\n"],"names":["console","log"],"version":3,"file":"index.1c36e99f.js.map"}
